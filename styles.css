@@ -1,0 +1,513 @@
+:root {
+    --primary-color: #21614A;
+    --background-color: #f5f5f5;
+    --text-color: #222;
+    --card-background: #fff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #1a4d3b 0%, #21614A 50%, #2d8266 100%);
+    color: var(--text-color);
+    min-height: 100vh;
+}
+
+/* Remove the old header and nav styles */
+header, nav {
+    display: none;
+}
+
+/* Site header styles */
+.site-header {
+    background: transparent;
+    padding: 8rem 4rem 4rem;
+    margin: 0;
+    position: relative;
+    overflow: hidden;
+    box-shadow: none;
+}
+
+.brand {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.logo {
+    font-size: 4rem;
+    font-weight: 900;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.04em;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.2);
+}
+
+.logo svg {
+    width: 64px;
+    height: 64px;
+    stroke: white;
+    fill: white;
+    filter: drop-shadow(0 2px 8px rgba(0,0,0,0.2));
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.logo:hover svg {
+    transform: rotate(-10deg) scale(1.1);
+}
+
+.logo-text {
+    display: flex;
+    align-items: baseline;
+    white-space: nowrap;
+    gap: 0.75rem;
+}
+
+.location-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.2rem;
+    font-style: italic;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.85);
+    letter-spacing: -0.02em;
+}
+
+.location-separator {
+    font-weight: 200;
+    margin: 0 0.25rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.description {
+    color: rgba(255,255,255,0.95);
+    line-height: 1.6;
+    font-size: 1.2rem;
+    font-weight: 400;
+    max-width: 600px;
+    text-shadow: 0 1px 10px rgba(0,0,0,0.15);
+    letter-spacing: 0;
+    margin-top: 0.5rem;
+    opacity: 0.9;
+}
+
+.description::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 3px;
+    background: rgba(255,255,255,0.3);
+    margin: 2rem auto 0;
+    border-radius: 2px;
+}
+
+/* Decorative elements */
+.site-header::before {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .site-header {
+        padding: 6rem 2rem 1.5rem;
+    }
+    
+    .logo {
+        font-size: 3rem;
+    }
+    
+    .location-text {
+        font-size: 2.4rem;
+    }
+    
+    .description {
+        font-size: 1.1rem;
+        padding: 0 1rem;
+    }
+    
+    .trending-title {
+        font-size: 1rem;
+    }
+}
+
+/* Update button container */
+.button-container {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 1rem;
+    z-index: 100;
+}
+
+/* Update existing primary button */
+.primary-btn {
+    background-color: white;
+    color: var(--primary-color);
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 24px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    transition: transform 0.2s, box-shadow 0.2s;
+    white-space: nowrap;
+}
+
+.primary-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 24px rgba(0,0,0,0.25);
+}
+
+/* Update download button style */
+.download-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.9);
+    padding: 1rem 2rem;
+    border-radius: 24px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    transition: all 0.2s;
+    white-space: nowrap;
+}
+
+.download-btn:hover {
+    background-color: #2d8266;
+    transform: scale(1.05);
+    box-shadow: 0 6px 24px rgba(0,0,0,0.25);
+    border-color: white;
+}
+
+main {
+    max-width: 800px;
+    margin: 0 auto 2rem;
+    padding: 0 1.5rem;
+}
+
+.events-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 5rem;
+}
+
+.event-card {
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 1.5rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    display: flex;
+    gap: 1rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.event-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+}
+
+.upvote-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    min-width: 40px;
+    padding-top: 0.25rem;
+}
+
+.upvote-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--primary-color);
+    padding: 10px;
+    border-radius: 50%;
+    transition: background-color 0.2s;
+}
+
+.upvote-btn:hover {
+    background-color: rgba(33, 97, 74, 0.1);
+}
+
+.upvote-btn svg {
+    display: block;
+    transition: fill 0.1s ease-out;
+}
+
+@keyframes shakaThrow {
+    0%, 100% { transform: rotate(0deg); }
+    30% { transform: rotate(-20deg); }
+    70% { transform: rotate(20deg); }
+}
+
+.upvote-btn.animate-shaka svg {
+    fill: var(--primary-color);
+    animation: shakaThrow 0.4s ease-in-out;
+}
+
+.upvote-btn.upvoted svg {
+    fill: var(--primary-color);
+}
+
+.upvote-btn.upvoted:hover {
+    background-color: transparent;
+}
+
+.event-details {
+    flex-grow: 1;
+}
+
+.event-title {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: #222;
+    margin-bottom: 0.5rem;
+}
+
+.event-description {
+    color: #717171;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    max-width: 450px;
+}
+
+.event-meta {
+    display: flex;
+    gap: 1.25rem;
+    color: #717171;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(4px);
+    z-index: 1000;
+}
+
+.modal.show {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background-color: var(--card-background);
+    padding: 2.5rem;
+    border-radius: 24px;
+    width: 90%;
+    max-width: 600px;
+    position: relative;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    margin: 0;
+}
+
+.modal h2 {
+    color: var(--text-color);
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+}
+
+.close {
+    position: absolute;
+    right: 1.5rem;
+    top: 1.5rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #717171;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.2s;
+}
+
+.close:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    color: var(--text-color);
+}
+
+/* Form styles */
+.modal form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.modal input,
+.modal textarea {
+    padding: 1rem;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    font-size: 1rem;
+    transition: border-color 0.2s;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.02);
+}
+
+.modal input:focus,
+.modal textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    background: white;
+}
+
+.modal textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.datetime-inputs {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.datetime-inputs > div {
+    flex: 1;
+    min-width: 240px;
+}
+
+.datetime-inputs label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #717171;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* Submit button styling */
+.modal .primary-btn {
+    margin-top: 0.5rem;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+}
+
+.modal .primary-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(33, 97, 74, 0.2);
+}
+
+@media (max-width: 768px) {
+    .modal-content {
+        padding: 2rem 1.5rem;
+        width: 95%;
+        margin: 1rem;
+    }
+    
+    .datetime-inputs {
+        flex-direction: column;
+    }
+    
+    .datetime-inputs > div {
+        min-width: 100%;
+    }
+}
+
+/* Add sort button styles */
+.sort-btn {
+    background: transparent;
+    color: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.2s;
+}
+
+.sort-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+.sort-btn svg {
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
+    transition: transform 0.2s;
+}
+
+.sort-btn.date-asc svg {
+    transform: rotate(180deg);
+}
+
+/* Add timeline filter styles */
+.filter-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    padding: 0;
+}
+
+.filter-group {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.filter-btn {
+    background: transparent;
+    color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 0.5rem 1.25rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.filter-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+.filter-btn.active {
+    background: white;
+    color: var(--primary-color);
+    border-color: white;
+    font-weight: 600;
+}
+
+.content-section {
+    padding: 0;
+}
+
+@media (max-width: 768px) {
+    .filter-row,
+    .content-section {
+        padding: 0 1.5rem;
+    }
+}

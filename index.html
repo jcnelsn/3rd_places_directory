@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3rd Places Honolulu</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
+</head>
+<body>
+    <main>
+        <div class="site-header">
+            <div class="brand">
+                <div class="logo">
+                    <svg width="64" height="64" viewBox="0 0 22 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17.3755 5.1455L16.0956 7.59592C15.5975 6.29824 15.3484 5.64941 14.9715 5.22851C14.6534 4.86878 14.2519 4.59246 13.8023 4.42372C13.3527 4.25498 12.8686 4.19894 12.3923 4.26052C11.8445 4.33476 11.2591 4.67088 10.0866 5.34162L6.68275 7.46017L4.80132 2.55887C4.45513 1.65703 3.46465 1.19746 2.58709 1.53433C1.71139 1.87048 1.28096 2.87548 1.62714 3.77732L4.64819 11.6474C5.59069 14.1027 6.06231 15.3313 6.87804 16.1086C7.7125 16.9033 8.79582 17.3853 9.94477 17.4732C11.0673 17.5597 12.295 17.0884 14.7512 16.1456C16.1245 15.6184 16.8107 15.355 17.337 14.8788C17.4988 14.731 17.6477 14.5703 17.7839 14.3966C18.2218 13.8354 18.4447 13.1211 18.8886 11.691L20.4916 6.5383C20.6073 6.16038 20.594 5.75466 20.4537 5.38514C20.3134 5.01561 20.0541 4.7033 19.7167 4.49743C19.5226 4.37771 19.3059 4.29934 19.0802 4.26721C18.8544 4.23509 18.6245 4.24991 18.4047 4.31074C18.1849 4.37157 17.9801 4.47711 17.803 4.62075C17.6259 4.76438 17.4803 4.94303 17.3755 5.1455Z" fill="white" stroke="white" stroke-width="0.3" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <div class="logo-text">
+                        3rd Places
+                        <span class="location-separator">×</span>
+                        <span class="location-text">Honolulu</span>
+                    </div>
+                </div>
+                <p class="description">A "3rd Place" is any space outside of work and home where we connect with community. These are Honolulu's 3rd Places.</p>
+            </div>
+            <div class="button-container">
+                <button id="addEventBtn" class="primary-btn">+ Add Event</button>
+                <button class="download-btn">Download App</button>
+            </div>
+        </div>
+
+        <div class="filter-row">
+            <div class="filter-group">
+                <button class="filter-btn active" data-filter="all">All Events</button>
+                <button class="filter-btn" data-filter="today">Today</button>
+                <button class="filter-btn" data-filter="tomorrow">Tomorrow</button>
+                <button class="filter-btn" data-filter="week">This Week</button>
+            </div>
+            <button class="sort-btn" id="sortBtn">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M7 10l5 5 5-5z"/>
+                </svg>
+                Sort by Trending
+            </button>
+        </div>
+
+        <div class="content-section">
+            <div class="events-container">
+                <!-- Events will be dynamically added here -->
+            </div>
+        </div>
+    </main>
+
+    <!-- Add Event Modal -->
+    <div id="eventModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Add New Event</h2>
+            <form id="eventForm">
+                <input type="text" id="eventTitle" placeholder="Event Title" required>
+                <textarea id="eventDescription" placeholder="Event Description" required></textarea>
+                <input type="text" id="eventLocation" placeholder="Location" required>
+                <div class="datetime-inputs">
+                    <div>
+                        <label>Start Date & Time</label>
+                        <input type="datetime-local" id="eventStart" required>
+                    </div>
+                    <div>
+                        <label>End Date & Time</label>
+                        <input type="datetime-local" id="eventEnd" required>
+                    </div>
+                </div>
+                <button type="submit" class="primary-btn">Create Event</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
